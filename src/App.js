@@ -1,10 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './componentes/NavBar';
+import Encabezado from './componentes/Encabezado'
+import Productos from './componentes/Productos';
+
 
 function App() {
   return (
     <div>
-      <h1> Nanu Chocolata</h1>
+      <Encabezado />
+
+      <NavBar />
+
+      <Productos />
     </div>
   );
 }
