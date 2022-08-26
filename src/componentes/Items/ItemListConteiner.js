@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Productos () {
+export default function ItemListConteiner () {
 
   return (
     <div>

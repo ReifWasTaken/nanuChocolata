@@ -1,7 +1,7 @@
 import './App.css';
-import NavBar from './componentes/NavBar';
-import Encabezado from './componentes/Encabezado'
-import Productos from './componentes/Productos';
+import NavBar from './componentes/NavBar/NavBar';
+import Encabezado from './componentes/Header/Encabezado'
+import ItemListConteiner  from './componentes/Items/ItemListConteiner';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 
       <NavBar />
 
-      <Productos />
+      <ItemListConteiner />
     </div>
   );
 }

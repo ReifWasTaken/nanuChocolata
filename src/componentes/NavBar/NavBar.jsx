@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import Carrito from './Carrito';
+import CartWidget from './CartWidget';
 
 const pages = ['Productos', 'contacto'];
 
@@ -118,7 +118,7 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-                <Carrito  cantidad={4}/>
+                <CartWidget  cantidad={4}/>
 
           </Box>
         </Toolbar>

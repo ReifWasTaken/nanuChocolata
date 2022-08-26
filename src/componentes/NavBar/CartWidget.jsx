@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Carrito( {cantidad} ) {
+export default function CartWidget( {cantidad} ) {
   return (
     <>
         🛒({cantidad})
