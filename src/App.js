@@ -4,6 +4,7 @@ import Encabezado from './componentes/Header/Encabezado';
 import ItemListConteiner  from './componentes/Items/ItemListConteiner';
 import ItemCount from './componentes/Items/ItemCount';
 import React, { useState } from "react";
+import ItemDetailContainer from './componentes/Items/ItemDetailContainer';
 
 
 function App() {
@@ -31,14 +32,14 @@ function App() {
   const onAdd = () => {
     console.log(count);
   };
-
+//      <ItemListConteiner greeting={greeting}/>
   return (
     <div>
       <Encabezado />
 
       <NavBar />
 
-      <ItemListConteiner greeting={greeting}/>
+      <ItemDetailContainer />
 
       <ItemCount
         count={count}

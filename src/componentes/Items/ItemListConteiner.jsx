@@ -32,6 +32,7 @@ export default function ItemListConteiner ({greeting}) {
         .catch((err)=>{
             setError(err);
         })
+
         .finally(()=>{
             setLoading(false);
         })
@@ -41,6 +42,7 @@ export default function ItemListConteiner ({greeting}) {
 
   return (
     <div>
+        <h2>{greeting}</h2>
         <p>Loading: {loading ? 'Loading...' : 'fin'} </p>
         <p>Error: {error ? error : null} </p>
         <ItemList productos = {productos}/>

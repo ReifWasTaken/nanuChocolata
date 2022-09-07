@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import Item from './Item'
 
 
-export default function Item({producto}) {
-
-    //const{id, name, descripcion, precio, imagen} = producto
-    const{title, id, price, description, image} = producto
-
+export default function ItemDetail({productosDetail}) {
+  const{title, id, price, description, image} = productosDetail
   return (
     
     <div className='card' style={{width:'50rem', backgroundColor:"brown", color: "pink", padding:'5px', margin: "5px" }}>
