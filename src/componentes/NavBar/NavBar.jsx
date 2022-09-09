@@ -11,8 +11,9 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
-const pages = ['Productos', 'contacto'];
+const pages = [''];
 
 
 const ResponsiveAppBar = () => {
@@ -36,7 +37,6 @@ const ResponsiveAppBar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -47,7 +47,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            Nadu Chocolata
+            <Link to="/" >Nadu Chocolata</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -112,13 +112,16 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
+                <Link to="./category/chocolate">Chocolate</Link>
+                <Link to="./category/confiteria">Confiteria</Link>
+                <Link to="./category/panaderia">Panaderia</Link>
                 {page}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-                <CartWidget  cantidad={4}/>
+            <CartWidget  cantidad={4}/>
 
           </Box>
         </Toolbar>

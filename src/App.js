@@ -5,6 +5,8 @@ import ItemListConteiner  from './componentes/Items/ItemListConteiner';
 import ItemCount from './componentes/Items/ItemCount';
 import React, { useState } from "react";
 import ItemDetailContainer from './componentes/Items/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from './componentes/footer/Footer';
 
 
 function App() {
@@ -32,21 +34,30 @@ function App() {
   const onAdd = () => {
     console.log(count);
   };
-//      <ItemListConteiner greeting={greeting}/>
-  return (
-    <div>
-      <Encabezado />
+/*      <ItemListConteiner greeting={greeting}/>
 
-      <NavBar />
 
       <ItemDetailContainer />
-
       <ItemCount
         count={count}
         handleAumentar={handleAumentar}
         handleRestar={handleRestar}
         onAdd={onAdd}
       />
+
+*/
+  return (
+    <div>
+        <BrowserRouter>
+          <NavBar />
+          <Encabezado />
+            <Routes>
+              <Route path='/' element= {<ItemListConteiner/>} />
+              <Route path='/category/:idcategory' element= {<ItemListConteiner/>}/>
+              <Route path='/product/:idproduct' element ={<ItemDetailContainer/>}/>
+            </Routes>    
+          <Footer />  
+        </BrowserRouter>
     </div>
   );
 }
