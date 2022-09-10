@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 import { data } from '../mock/mockData';
+import ItemDetail from './ItemDetail';
 
 
 export default function ItemDetailContainer() {
   const { idproduct } = useParams()
-  const [productosDetail, setProductosDetail] = useState ([]);
+  const [productosDetail, setProductosDetail] = useState ({});
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
@@ -20,7 +20,6 @@ export default function ItemDetailContainer() {
 
     }, [idproduct])
 
-  
   return (
   <div>
      {loading ? <p>Cargando... </p> :<ItemDetail key={productosDetail.id} productosDetail={productosDetail}/>} 

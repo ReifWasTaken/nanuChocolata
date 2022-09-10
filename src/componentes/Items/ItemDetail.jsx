@@ -1,9 +1,9 @@
 import React from 'react'
-import Item from './Item'
-
+import { useNavigate } from 'react-router-dom'
 
 export default function ItemDetail({productosDetail}) {
-  const{item, id, price, description, image} = productosDetail
+  const{item, id, price, image} = productosDetail
+  const navegar = useNavigate();
   return (
     
     <div className='card' style={{width:'50rem', backgroundColor:"brown", color: "pink", padding:'5px', margin: "5px" }}>
@@ -11,10 +11,9 @@ export default function ItemDetail({productosDetail}) {
     <div className='cardBody' style={{display:'flex'}}>
         <img src={image} alt={item} style={{width: '10rem'}}/>
         <p className='cardText'>{item}</p>
-        <p className='cardText'>{description}</p>
         <p className='cardText'>${price}</p>
     </div>
-      <button className='botonCompra'>Comprar!</button>
+      <button className='botonCompra' onClick={()=>navegar(`/product/${id}`)}>Ver detalle</button>
     </div>
   )
 }
