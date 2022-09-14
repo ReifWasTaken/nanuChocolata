@@ -1,25 +1,30 @@
 import React from 'react'
 
-export default function ItemCount({count, handleAumentar, handleRestar, onAdd}) {
-  return (
+const ItemCount = ({initial, stock, onAdd, contador, setContador}) => {
+
+
+  const restar = () => {
+    if (contador > initial){
+      setContador(contador -1)
+    }
+  }
+
+  const sumar = () => {
+    if (contador < stock){
+      setContador(contador +1)
+    }
+  }
+
+  return(
+    <>
     <div>
-      <button onClick = {() => {
-        handleRestar();
-      }} >-</button>
-
-      <span>{count}</span>
-
-      <button onClick = {() => {
-        handleAumentar();
-      }} >+</button>
-
-      <div>
-      <button onClick = {() => {
-        onAdd();
-      }} >Agregar al carrito</button>
-      </div>
-
+        <button onClick={restar}>-</button>
+        <span>{contador}</span>
+        <button onClick={sumar}>+</button>
     </div>
-   
+        <button onClick={onAdd}>Comprar</button>
+    </>
   )
 }
+
+export default ItemCount

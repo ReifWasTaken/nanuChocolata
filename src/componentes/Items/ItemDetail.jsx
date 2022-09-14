@@ -1,9 +1,18 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import ItemCount from './ItemCount';
 
-export default function ItemDetail({productosDetail}) {
-  const{item, id, price, image} = productosDetail
+ const ItemDetail = ({productosDetail}) => {
+  const [contador, setContador] = useState(1)
+  const [compra, setCompra] = useState(false)
   const navegar = useNavigate();
+  const {item, price, image, stock} = productosDetail
+
+  const onAdd = () => {
+    console.log(`Compraste ${contador} ${item}`)
+    setCompra(true)
+  }
+
   return (
     
     <div className='card' style={{width:'50rem', backgroundColor:"brown", color: "pink", padding:'5px', margin: "5px" }}>
@@ -12,8 +21,12 @@ export default function ItemDetail({productosDetail}) {
         <img src={image} alt={item} style={{width: '10rem'}}/>
         <p className='cardText'>{item}</p>
         <p className='cardText'>${price}</p>
+        {!compra
+         ? <ItemCount stock ={stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador} />
+        : <button onClick={()=>navegar(`/Cart`)}>Ir al carrito</button> }
     </div>
-      <button className='botonCompra' onClick={()=>navegar(`/product/${id}`)}>Ver detalle</button>
     </div>
   )
 }
+
+export default ItemDetail
