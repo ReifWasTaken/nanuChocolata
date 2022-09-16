@@ -24,5 +24,4 @@ export default function ItemDetailContainer() {
   <div>
      {loading ? <p>Cargando... </p> :<ItemDetail key={productosDetail.id} productosDetail={productosDetail}/>} 
   </div>
-  )
-  }
+  )}
