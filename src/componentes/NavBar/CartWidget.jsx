@@ -1,11 +1,11 @@
 import React from 'react'
+import {useCart} from '../../context/CartContext'
 
-export default function CartWidget( {cantidad} ) {
+export default function CartWidget(contador) {
+  const {cartItems} = useCart()
+
   return (
-    <>
-        🛒({cantidad})
-    </>
+    <div>🛒{cartItems() || ''}</div>
   )
 }
-
 

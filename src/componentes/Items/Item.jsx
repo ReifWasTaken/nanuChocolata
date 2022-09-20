@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+ 
 
 export default function Item({producto}) {
     const{item, id, price, image} = producto

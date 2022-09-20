@@ -2,7 +2,6 @@ import React from 'react'
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useRadioGroup } from '@mui/material';
 import { data } from '../mock/mockData';
 
 

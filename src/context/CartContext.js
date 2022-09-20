@@ -34,8 +34,16 @@ const isInCart = (id) => {
   return cart.some((product) => product.id === id)
 }
 
+const cartItems = () =>{
+  return cart.reduce((acumulador, producto)=>acumulador += producto.quantity, 0)
+}
+
+const cartTotal = () => {
+  return cart.reduce((acumulador, producto)=> acumulador += producto.price * producto.quantity, 0)
+}
+
   return(
-    <CartContext.Provider value={{cart, addItem, clear, removeItem, isInCart}}>
+    <CartContext.Provider value={{cart, addItem, clear, removeItem, isInCart, cartItems, cartTotal}}>
         {children}
     </CartContext.Provider>
   )
