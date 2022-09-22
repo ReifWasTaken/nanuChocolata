@@ -1,7 +1,8 @@
+import { collection, getDoc, doc } from 'firebase/firestore';
+import { db } from '../../firebase/firebase';
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { data } from '../mock/mockData';
 import ItemDetail from './ItemDetail';
 
 
@@ -11,14 +12,20 @@ export default function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-    setTimeout(()=>{
-        data
-      .then((res)=> setProductosDetail(res.find((item)=> item.id === idproduct)))
-      .catch(error => console.log('Error al cargar el producto'))
-      .finally(()=> setLoading(false))
-      }, 2000)
+    const detalleProducto = collection(db, "products")
+    const refDoc = doc(detalleProducto, idproduct)
+    getDoc(refDoc)
 
-    }, [idproduct])
+    .then((res)=> {
+      setProductosDetail({
+        id:res.id,
+        ...res.data()
+      })
+    })
+    .catch(error => console.log(error))
+    .finally(()=> setLoading(false))
+
+  },[idproduct])
 
   return (
   <div>
