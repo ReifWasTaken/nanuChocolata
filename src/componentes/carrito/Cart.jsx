@@ -22,7 +22,7 @@ export default function Cart() {
 
           <span>Total: ${cartTotal()}</span>
           <button onClick={clear}>Vaciar Carrito</button>
-          <button>Ir a pagar</button>
+          <button onClick={()=>navegar('/checkout')}>Ir a pagar</button>
         </div>
       }
     </div>
