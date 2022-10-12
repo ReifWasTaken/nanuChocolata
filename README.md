@@ -30,3 +30,10 @@ React no viene con un mecanismo integrado de navegación por lo que instalaremos
 ### Firestore
 En el panel podemos acceder a firestore para empezar a diseñar nuestra capa de datos dinámicos, y poder enriquecer la app.
 
+### Gif del proyecto
+![NanuChocolata gif](https://user-images.githubusercontent.com/103077552/195466581-a1258052-40a1-4d2b-9ce0-ae66bcc9480a.gif)
+
+## Repositorio GitHub
+
+https://github.com/ReifWasTaken/nanuChocolata
+
