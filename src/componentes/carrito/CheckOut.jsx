@@ -14,60 +14,60 @@ export default function CheckOut() {
     const { cart, cartTotal } = useCart()
     const navigate = useNavigate()
 
-    const datosCliente = (e) =>{
+    const datosCliente = (e) => {
         setCliente({
             ...cliente,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         })
     }
-    const finalizarCompra = (e) =>{
+    const finalizarCompra = (e) => {
         e.preventDefault()
 
-        if(Object.values(cliente).length!== 3){
+        if (Object.values(cliente).length !== 3) {
             setErr(true)
-        }else{
+        } else {
             setErr(false)
             setLoading(true)
-        const ventas = collection(db,'orders')
-        addDoc(ventas, {
-            cliente,
-            items: cart,
-            total: cartTotal(),
-            date: serverTimestamp()
-        })
-        .then((res)=>{
-            setOrderID(res.id)
-            clear()
-        })
-        .catch((error)=> console.log(error))
-        .finally(()=> setLoading(false))
+            const ventas = collection(db, 'orders')
+            addDoc(ventas, {
+                cliente,
+                items: cart,
+                total: cartTotal(),
+                date: serverTimestamp()
+            })
+                .then((res) => {
+                    setOrderID(res.id)
+                    clear()
+                })
+                .catch((error) => console.log(error))
+                .finally(() => setLoading(false))
         }
 
     }
-    if(loading){
+    if (loading) {
         return <p>Cargando su orden..</p>
     }
-  return (
-    <div>
-    {!orderID ? 
-    <div>
-        <h2>Los productos ya son casi tuyos!</h2>
-        <h4>Complete los siguientes datos</h4>
-
-        <form style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column'}} onSubmit={finalizarCompra}>
-            <input type="text" placeholder='Nombre y apellido' name='name'onChange={datosCliente}/>
-            <input type="number" placeholder='1155555555' name='telephone'onChange={datosCliente}/>
-            <input type="email" placeholder='ejemplo@ejemplo.com' name='email'onChange={datosCliente}/>
-            <button type='submit'>Finalizar Compra</button>
-            { err && <p style= {{color:'red'}}>Por favor complete los datos</p> }
-        </form>
-        </div>
-        :
+    return (
         <div>
-            <h2>Muchas Gracias por su compra</h2>
-            <h3>Su orden es: {orderID}</h3>
-            <button onClick={()=> navigate('/')}>Volver</button>
-        </div>}
-    </div>
-  )
+            {!orderID ?
+                <div>
+                    <h2>Los productos ya son casi tuyos!</h2>
+                    <h4>Complete los siguientes datos</h4>
+
+                    <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }} onSubmit={finalizarCompra}>
+                        <input type="text" placeholder='Nombre y apellido' name='name' onChange={datosCliente} />
+                        <input type="number" placeholder='1155555555' name='telephone' onChange={datosCliente} />
+                        <input type="email" placeholder='ejemplo@ejemplo.com' name='email' onChange={datosCliente} />
+                        <button type='submit'>Finalizar Compra</button>
+                        {err && <p style={{ color: 'red' }}>Por favor complete los datos</p>}
+                    </form>
+                </div>
+                :
+                <div>
+                    <h2>Muchas Gracias por su compra</h2>
+                    <h3>Su orden es: {orderID}</h3>
+                    <button onClick={() => navigate('/')}>Volver</button>
+                </div>}
+        </div>
+    )
 }

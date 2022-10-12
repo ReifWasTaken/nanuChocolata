@@ -7,10 +7,9 @@ export default function Item({producto}) {
     const navegar = useNavigate();
   return (
     
-    <div className='card' style={{width:'50rem', backgroundColor:"brown", color: "pink", padding:'5px', margin: "5px" }}>
-    
-    <div className='cardBody' style={{display:'flex'}}>
-        <img src={image} alt={item} style={{width: '10rem'}}/>
+    <div className='card' style={{width: '25rem', backgroundColor:"brown", color: "pink", padding:'5px', margin: "5px", display: "inline-block" }}>
+     <div style={{ backgroundImage: `url('${image}')`, backgroundRepeat:'no-repeat', backgroundPosition:'center', backgroundSize:'contain', width:'100&', height:'25rem'}}/>
+    <div className='cardBody'>
         <p className='cardText'>{item}</p>
         <p className='cardText'>${price}</p>
 

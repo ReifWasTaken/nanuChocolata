@@ -110,11 +110,11 @@ const ResponsiveAppBar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', }}
               >
-                <Link to="./category/chocolate">Chocolate</Link>
-                <Link to="./category/confiteria">Confiteria</Link>
-                <Link to="./category/panaderia">Panaderia</Link>
+                <Link to="./category/chocolate" style={{margin: "5px", padding: "5px" }}>Chocolate</Link>
+                <Link to="./category/confiteria" style={{margin: "5px", padding: "5px" }}>Confiteria</Link>
+                <Link to="./category/panaderia" style={{margin: "5px", padding: "5px" }}>Panaderia</Link>
                 {page}
               </Button>
             ))}

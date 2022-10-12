@@ -21,8 +21,10 @@ export default function Cart() {
           {cart.map((compra)=> <CartItem key={compra.id} compra={compra}/>)}
 
           <span>Total: ${cartTotal()}</span>
+          <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'2rem'}}>
           <button onClick={clear}>Vaciar Carrito</button>
           <button onClick={()=>navegar('/checkout')}>Ir a pagar</button>
+          </div>
         </div>
       }
     </div>

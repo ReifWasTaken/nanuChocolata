@@ -8,7 +8,7 @@ import ItemCount from './ItemCount';
   const [contador, setContador] = useState(1)
   const [compra, setCompra] = useState(false)
   const navegar = useNavigate();
-  const {item, price, image, stock, id} = productosDetail
+  const {item, price, image, stock, id, description} = productosDetail
   const{addItem}=useCart()
 
   const onAdd = () => {
@@ -26,15 +26,17 @@ import ItemCount from './ItemCount';
 
   return (
     
-    <div className='card' style={{width:'50rem', backgroundColor:"brown", color: "pink", padding:'5px', margin: "5px" }}>
+    <div className='card'  style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center', padding:'3rem'}}>
 
-    <div className='cardBody' style={{display:'flex'}}>
-        <img src={image} alt={item} style={{width: '10rem'}}/>
-        <p className='cardText'>{item}</p>
-        <p className='cardText'>${price}</p>
+    <div className='cardBody' style={{display: 'inline-block'}}>
+        <img src={image} alt={item} style={{width: '15rem'}}/>
+        <p className='cardText'>{item}</p>        
+        <p className='cardText'>${price}</p>        
+        <p className='cardText'>{description}</p>
+
         {!compra
          ? <ItemCount stock ={stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador} />
-        : <div style={{display: 'flex', justifyContent:'space-around'}}>
+        : <div style={{display: 'flex', justifyContent:'space-around', alignItems: 'center'}}>
           <button onClick={()=>navegar(`/Cart`)}>Ir al carrito</button>
           <button onClick={()=>navegar(`/`)}>Seguir comprando</button>
         </div> }
